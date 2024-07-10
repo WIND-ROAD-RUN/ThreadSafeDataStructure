@@ -20,14 +20,14 @@
             "warnings": {
                 "dev": true,
                 "deprecated": true
-            }
+            },
+            "binaryDir": "${sourceDir}/out/${presetName}"
         },
         {
             "name": "windows_debug",
             "inherits": "windows_config_base",
             "displayName": "Windows x64 (Debug)",
             "description": "NetEase MSS C wrapper for Windows - Debug Configuration",
-            "binaryDir": "${sourceDir}/build",
             "architecture": {
                 "value": "x64",
                 "strategy": "set"
@@ -42,7 +42,6 @@
             "inherits": "windows_config_base",
             "displayName": "Windows x64 (Release)",
             "description": "NetEase MSS C wrapper for Windows - Release Configuration",
-            "binaryDir": "${sourceDir}/build",
             "architecture": {
                 "value": "x64",
                 "strategy": "set"
