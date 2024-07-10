@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 3.17)
+cmake_minimum_required(VERSION 3.28.0)
 
-project(ThreadSafeDataStructure)
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
-add_executable(hello main.cpp)
+project(ThreadSafeDataStructure LANGUAGES CXX)
+
+add_subdirectory(ThreadSafeDataStructure)
