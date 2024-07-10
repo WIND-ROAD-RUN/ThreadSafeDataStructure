@@ -1,0 +1,71 @@
+{
+    "version": 5,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 26,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "windows_config_base",
+            "hidden": true,
+            "displayName": "windows_base_configuration",
+            "description": "windows_base_configuration",
+            "generator": "Visual Studio 17 2022",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "warnings": {
+                "dev": true,
+                "deprecated": true
+            }
+        },
+        {
+            "name": "windows_debug",
+            "inherits": "windows_config_base",
+            "displayName": "Windows x64 (Debug)",
+            "description": "NetEase MSS C wrapper for Windows - Debug Configuration",
+            "binaryDir": "${sourceDir}/build",
+            "architecture": {
+                "value": "x64",
+                "strategy": "set"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_DEBUG_POSTFIX": "d"
+            }
+        },
+        {
+            "name": "windows_release",
+            "inherits": "windows_config_base",
+            "displayName": "Windows x64 (Release)",
+            "description": "NetEase MSS C wrapper for Windows - Release Configuration",
+            "binaryDir": "${sourceDir}/build",
+            "architecture": {
+                "value": "x64",
+                "strategy": "set"
+            },
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "windows_debug",
+            "configurePreset": "windows_debug",
+            "displayName": "Windows Local Compilation (Debug)",
+            "description": "NetEase MSS C wrapper for Windows - Debug Configuration",
+            "configuration": "Debug"
+        },
+        {
+            "name": "windows_release",
+            "configurePreset": "windows_release",
+            "displayName": "Windows Local Compilation (Release)",
+            "description": "NetEase MSS C wrapper for Windows - Debug Configuration",
+            "configuration": "Release"
+        }
+    ]
+}
